@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="QB-Stocky.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Total Items</span>
+                    <i class="icon-package"></i>
+                </div>
+                <p id="totalItems" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Low Stock</span>
+                    <i class="icon-alert"></i>
+                </div>
+                <p id="lowStockItems" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Expired</span>
+                    <i class="icon-expired"></i>
+                </div>
+                <p id="expiredItems" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>In Stock</span>
+                    <i class="icon-stock"></i>
+                </div>
+                <p id="inStockItems" class="stat-value">0</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-card">
+            <div class="card-header">
+                <h2>Inventory</h2>
+                <div class="search-filters">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-content">
+                <div id="inventoryGrid" class="inventory-grid"></div>
+            </div>
+        </div>
+
+        <!-- Add Product Button -->
+        <button id="addProductBtn" class="add-button">
+            <span>+</span>
+        </button>
+
+        <!-- Add Product Modal -->
+        <div id="addProductModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add New Product</h3>
+                    <button id="closeModalBtn" class="close-button">&times;</button>
+                </div>
+                <form id="addProductForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="productName">Product Name *</label>
+                            <input type="text" id="productName" name="productName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity *</label>
+                            <input type="number" id="quantity" name="quantity" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">Unit *</label>
+                            <select id="unit" name="unit" required>
+                                <!-- Units will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <input type="text" id="category" name="category" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expirationDate">Expiration Date *</label>
+                            <input type="date" id="expirationDate" name="expirationDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Storage Location</label>
+                            <input type="text" id="location" name="location">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" name="notes" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="submit-button">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="QB-Stocky.js"></script>
+</body>
+</html>
